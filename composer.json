@@ -1,0 +1,12 @@
+{
+  "name" : "ntapiara/328/application",
+  "authors": [
+    {
+      "name" : "Nathan Tapia-Ramirez",
+      "email" : "tapia-ramirez.nathan@student.greenriver.edu"
+    }
+  ],
+  "require" : {
+    "bcosca/fatfree-core" : "dev-master"
+  }
+}
