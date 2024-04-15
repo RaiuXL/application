@@ -1,12 +1,9 @@
-/*Located in Nav*/
 .companyPosition{
     font-size: 18px;
 }
 .positionInfo{
     font-size: 13px;
 }
-
-
 img {
     border-radius: 6px;
 }
@@ -23,5 +20,11 @@ img {
     font-size: 13px;
 }
 .jobListingText .button-container {
-    text-align: center; /* Center align the content */
+    text-align: center;
+}
+.jobListingText em {
+    font-style: italic;
+    margin-left: 40px;
+    margin-right: 40px;
+    display: block;
 }

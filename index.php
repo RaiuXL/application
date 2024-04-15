@@ -1,6 +1,9 @@
 <?php
-// 328/pets/index.php
-// Controller - MVC
+/*
+  Author: Nathan Tapia-Ramirez
+  Date: 4/14/23
+  Description: Home page of application website.
+*/
 
 // Turn on reporting
 ini_set('display_errors',1);
