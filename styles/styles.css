@@ -1,12 +1,27 @@
-h3{
-    color:darkblue;
+/*Located in Nav*/
+.companyPosition{
+    font-size: 18px;
+}
+.positionInfo{
+    font-size: 13px;
+}
+
+
+img {
+    border-radius: 6px;
 }
  .content-container {
-     padding-top: 200px; /* Adjust this value according to your navbar height */
+     margin-top: 20px;
  }
-.jobListingText {
-    list-style-type: none; /* Remove bullet points */
+.jobListingText h4 {
+    text-align: center;
 }
-.jobListingText h3 {
-    text-align: center; /* Center the h3 tags */
+.jobListingText p,
+.jobListingText em,
+.jobListingText ul,
+.jobListingText li {
+    font-size: 13px;
+}
+.jobListingText .button-container {
+    text-align: center; /* Center align the content */
 }
