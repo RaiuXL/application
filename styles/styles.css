@@ -1,0 +1,12 @@
+h3{
+    color:darkblue;
+}
+ .content-container {
+     padding-top: 200px; /* Adjust this value according to your navbar height */
+ }
+.jobListingText {
+    list-style-type: none; /* Remove bullet points */
+}
+.jobListingText h3 {
+    text-align: center; /* Center the h3 tags */
+}
