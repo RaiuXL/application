@@ -33,7 +33,24 @@ img {
 }
 .outer-container{
     background-color: #f8f9fa;
+    padding-bottom: 20px;
 }
 .footer{
     background-color: darkgreen;
+}
+.input-width{
+    width: 100%;
+}
+.personal-info-button{
+    width:100%;
+}
+.message-box{
+    background-color: darkgray;
+}
+.select{
+    height: 30px;
+}
+
+label {
+    font-weight: bold;
 }
