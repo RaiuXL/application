@@ -28,3 +28,12 @@ img {
     margin-right: 40px;
     display: block;
 }
+.custom-navbar {
+ background-color: white;
+}
+.outer-container{
+    background-color: #f8f9fa;
+}
+.footer{
+    background-color: darkgreen;
+}
