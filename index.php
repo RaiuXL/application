@@ -41,13 +41,35 @@ $F3->route('GET|POST /info', function($F3){
             echo '<p>Error</p>';
         }
     }
+    /*var_dump($F3->get('SESSION'));*/
     $view = new Template();
     echo $view->render('views/info.html');
 });
 //experience route
 $F3->route('GET|POST /experience', function($F3){
+    if($_SERVER['REQUEST_METHOD']=='POST'){
+        $bio = $_POST['bio'];
+        $link = $_POST['link'];
+        $yearsInExperience = $_POST['years-experience'];
+        $willingToRelocate = $_POST['willing-to-relocate'];
+
+        if(!empty($bio)&&!empty($link)&&!empty($yearsInExperience)&&!empty($willingToRelocate)){
+            $F3->set('SESSION.bio',$bio);
+            $F3->set('SESSION.link',$link);
+            $F3->set('SESSION.years-experience',$yearsInExperience);
+            $F3->set('SESSION.willing-to-relocate',$willingToRelocate);
+            $F3->reroute("mailingList");
+        } else {
+            echo '<p>Error</p>';
+        }
+    }
     var_dump($F3->get('SESSION'));
     $view = new Template();
     echo $view->render('views/experience.html');
+});
+$F3->route('GET|POST /mailingList', function($F3){
+    var_dump($F3->get('SESSION'));
+    $view = new Template();
+    echo $view->render('views/mailingList.html');
 });
 $F3->run();

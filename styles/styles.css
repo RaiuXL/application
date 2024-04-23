@@ -54,3 +54,9 @@ img {
 label {
     font-weight: bold;
 }
+.bio {
+    height: 150px;
+}
+.radio-spacing {
+    margin-right: 25px; /* Adjust the value as needed */
+}

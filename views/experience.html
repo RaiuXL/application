@@ -21,6 +21,49 @@
         </div>
     </div>
 </nav>
-    <h2>You made it to the experience page</h2>
+
+    <div class="outer-container mb-5">
+        <div class="container content-container ">
+            <h3>Experience</h3>
+            <hr>
+            <form action="#" method="post" class="form-horizontal">
+                <div class="row">
+                    <div class="col-8">
+                        <label for="bio">Biography</label><br>
+                        <textarea id="bio" name="bio" class="input-width" rows="5" placeholder="Please tell us about yourself."></textarea>
+                    </div>
+                    <div class="col-4">
+                        <label for="link">LinkedIn Link</label><br>
+                        <input type="text" id="link" name="link" class="input-width" placeholder="linkedin.com/in/">
+                    </div>
+
+                    <div class="col-4">
+                        <label>Years of Experience</label><br>
+                        <input type="radio" id="0-2" name="years-experience" value="0-2">
+                        <label for="0-2">0-2</label>
+                        <input type="radio" id="2-4" name="years-experience" value="2-4">
+                        <label for="2-4">2-4</label>
+                        <input type="radio" id="4+" name="years-experience" value="4+">
+                        <label for="4+">4+</label>
+                    </div>
+                    <div class="col-4">
+                        <label>Willing to Relocate</label><br>
+                        <input type="radio" id="yes" name="willing-to-relocate" value="yes">
+                        <label for="yes">Yes</label>
+                        <input type="radio" id="no" name="willing-to-relocate" value="no">
+                        <label for="no">No</label>
+                        <input type="radio" id="maybe" name="willing-to-relocate" value="maybe">
+                        <label for="maybe">Maybe</label>
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn-sm personal-info-button">Next ></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
 </body>
 </html>
