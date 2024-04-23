@@ -61,3 +61,11 @@ label {
 .radio-spacing {
     margin-right: 25px; /* Adjust the value as needed */
 }
+.custom-image {
+    width: 800px;
+    height: 850px;
+}
+.custom-image2 {
+    width: 550px;
+    height: 450px;
+}

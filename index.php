@@ -47,24 +47,24 @@ $F3->route('GET|POST /info', function($F3){
 });
 
 //experience route
+//experience route
 $F3->route('GET|POST /experience', function($F3){
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $bio = $_POST['bio'];
         $link = $_POST['link'];
-        $yearsInExperience = $_POST['years-experience'];
-        $willingToRelocate = $_POST['willing-to-relocate'];
+        $yearsInExperience = $_POST['yearsInExperience'];
+        $willingToRelocate = $_POST['willingToRelocate']; // Corrected variable name
 
         if(!empty($bio)&&!empty($link)&&!empty($yearsInExperience)&&!empty($willingToRelocate)){
             $F3->set('SESSION.bio',$bio);
             $F3->set('SESSION.link',$link);
-            $F3->set('SESSION.years-experience',$yearsInExperience);
-            $F3->set('SESSION.willing-to-relocate',$willingToRelocate);
+            $F3->set('SESSION.yearsInExperience',$yearsInExperience);
+            $F3->set('SESSION.willingToRelocate',$willingToRelocate); // Corrected session key
             $F3->reroute("mailingList");
         } else {
             echo '<p>Error</p>';
         }
     }
-    /*var_dump($F3->get('SESSION'));*/
     $view = new Template();
     echo $view->render('views/experience.html');
 });

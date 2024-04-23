@@ -1,28 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <title>Application - Experience</title>
-</head>
+<include href="views/mainHeader.html"></include>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
-    <div class="container">
-        <div class="row">
-            <div class="">
-                <p class="companyName">Parkside Retirement Community</p>
-                <p class="companyPosition">Caregiver (Certified Nursing Assistant)</p>
-                <p class="positionInfo">Auburn Washington | Full-Time | Weekly Pay</p>
-            </div>
-        </div>
-    </div>
-</nav>
+    <include href="views/miniHeader.html"></include>
 
-    <div class="outer-container mb-5">
+<div class="outer-container mb-5">
         <div class="container content-container ">
             <h2>Experience</h2>
             <hr>
@@ -39,20 +19,20 @@
 
                     <div class="col-4">
                         <label>Years of Experience</label><br>
-                        <input type="radio" id="0-2" name="years-experience" value="0-2">
+                        <input type="radio" id="0-2" name="yearsInExperience" value="0-2">
                         <label for="0-2">0-2</label>
-                        <input type="radio" id="2-4" name="years-experience" value="2-4">
+                        <input type="radio" id="2-4" name="yearsInExperience" value="2-4">
                         <label for="2-4">2-4</label>
-                        <input type="radio" id="4+" name="years-experience" value="4+">
+                        <input type="radio" id="4+" name="yearsInExperience" value="4+">
                         <label for="4+">4+</label>
                     </div>
                     <div class="col-4">
                         <label>Willing to Relocate</label><br>
-                        <input type="radio" id="yes" name="willing-to-relocate" value="yes">
+                        <input type="radio" id="yes" name="willingToRelocate" value="yes">
                         <label for="yes">Yes</label>
-                        <input type="radio" id="no" name="willing-to-relocate" value="no">
+                        <input type="radio" id="no" name="willingToRelocate" value="no">
                         <label for="no">No</label>
-                        <input type="radio" id="maybe" name="willing-to-relocate" value="maybe">
+                        <input type="radio" id="maybe" name="willingToRelocate" value="maybe">
                         <label for="maybe">Maybe</label>
                     </div>
                     <div class="col-4">
