@@ -22,9 +22,8 @@ $F3->route('GET /', function(){
 });
 
 // Summary route 4/4
-// Can't get the checkboxes to display selected data
-$F3->route('GET|POST /summary', function($F3){
-    var_dump($F3->get('SESSION'));
+$F3->route('GET|POST /summary', function(){
+
     $view = new Template();
     echo $view->render('views/summary.html');
 });
@@ -83,73 +82,58 @@ $F3->route('GET|POST /info', function($F3){
 // Experience route 2/4
 $F3->route('GET|POST /experience', function($F3){
     if($_SERVER['REQUEST_METHOD']=='POST'){
-        $bio = $_POST['bio'];
-        $link = $_POST['link'];
-        $yearsInExperience = $_POST['yearsInExperience'];
-        $willingToRelocate = $_POST['willingToRelocate']; // Corrected variable name
 
-        if(!empty($bio)&&!empty($link)&&!empty($yearsInExperience)&&!empty($willingToRelocate)){
-            $F3->set('SESSION.bio',$bio);
-            $F3->set('SESSION.link',$link);
-            $F3->set('SESSION.yearsInExperience',$yearsInExperience);
-            $F3->set('SESSION.willingToRelocate',$willingToRelocate); // Corrected session key
-            $F3->reroute("mailingList");
+        $willingToRelocate = $_POST['willingToRelocate'];
+
+        if (isset($_POST['link']) and validLink($_POST['link'])) {
+            $link = $_POST['link'];
+        }
+        else {
+            $F3->set('errors["link"]', 'Please enter a valid URL');
+        }
+
+        if (isset($_POST['yearsInExperience']) and validExperience($_POST['yearsInExperience'])) {
+            $yearsInExperience = $_POST['yearsInExperience'];
+        }
+        else {
+            $F3->set('errors["yearsInExperience"]', 'Please select years of experience');
+        }
+
+        $bio = $_POST['bio'];
+
+        $F3->set('SESSION.bio',$bio);
+        $F3->set('SESSION.link',$link);
+        $F3->set('SESSION.yearsInExperience',$yearsInExperience);
+        $F3->set('SESSION.willingToRelocate',$willingToRelocate);
+
+        if(empty($F3->get('errors'))) {
+            $F3->reroute('mailingList');
         }
     }
+
     $view = new Template();
     echo $view->render('views/experience.html');
 });
 
 //  Mailing List Route 3/4
 $F3->route('GET|POST /mailingList', function($F3){
+
     if($_SERVER['REQUEST_METHOD']=='POST'){
-        // Initialize an array to store selected checkboxes
+
         $selectedCheckboxes = [];
 
-        // Checkboxes for Software Development Jobs
-        if(isset($_POST['JavaScript'])) {
-            $selectedCheckboxes[] = $_POST['JavaScript'];
-        }
-        if(isset($_POST['HTML'])) {
-            $selectedCheckboxes[] = $_POST['HTML'];
-        }
-        if(isset($_POST['PHP'])) {
-            $selectedCheckboxes[] = $_POST['PHP'];
-        }
-        if(isset($_POST['CSS'])) {
-            $selectedCheckboxes[] = $_POST['CSS'];
-        }
-        if(isset($_POST['Java'])) {
-            $selectedCheckboxes[] = $_POST['Java'];
-        }
-        if(isset($_POST['ReactJS'])) {
-            $selectedCheckboxes[] = $_POST['ReactJS'];
-        }
-        if(isset($_POST['Python'])) {
-            $selectedCheckboxes[] = $_POST['Python'];
-        }
-        if(isset($_POST['NodeJS'])) {
-            $selectedCheckboxes[] = $_POST['NodeJS'];
+        // Check for selected job openings
+        foreach(getJobOpenings() as $job){
+            if(isset($_POST['jobOpenings']) && in_array($job, $_POST['jobOpenings'])){
+                $selectedCheckboxes[] = $job;
+            }
         }
 
-        // Checkboxes for Industry Verticals
-        if(isset($_POST['SaaS'])) {
-            $selectedCheckboxes[] = $_POST['SaaS'];
-        }
-        if(isset($_POST['Industrial_Tech'])) {
-            $selectedCheckboxes[] = $_POST['Industrial_Tech'];
-        }
-        if(isset($_POST['Health_Tech'])) {
-            $selectedCheckboxes[] = $_POST['Health_Tech'];
-        }
-        if(isset($_POST['Cybersecurity'])) {
-            $selectedCheckboxes[] = $_POST['Cybersecurity'];
-        }
-        if(isset($_POST['Ag_Tech'])) {
-            $selectedCheckboxes[] = $_POST['Ag_Tech'];
-        }
-        if(isset($_POST['HR_Tech'])) {
-            $selectedCheckboxes[] = $_POST['HR_Tech'];
+        // Check for selected industry verticals
+        foreach(getIndustryVerticals() as $vertical){
+            if(isset($_POST['industryVerticals']) && in_array($vertical, $_POST['industryVerticals'])){
+                $selectedCheckboxes[] = $vertical;
+            }
         }
 
         // Save the selected checkboxes to session
@@ -158,6 +142,14 @@ $F3->route('GET|POST /mailingList', function($F3){
         // Redirect to the next page
         $F3->reroute("summary");
     }
+    $jobOpenings = getJobOpenings();
+
+    // Checkboxes for Industry Verticals
+    $industryVerticals = getIndustryVerticals();
+
+    // Save the selected checkboxes to session
+    $F3->set('jobOpenings', $jobOpenings);
+    $F3->set('industryVerticals', $industryVerticals);
 
     $view = new Template();
     echo $view->render('views/mailingList.html');

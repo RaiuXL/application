@@ -23,7 +23,12 @@
                         <hr>
                         <p>Willing To Relocate: {{@SESSION.willingToRelocate}}</p>
                         <hr>
-                        <p>Mailing Lists: {{@SESSION.selectedCheckboxes}}</p>
+                        <p>Mailing Lists:
+                            <repeat group="{{ @SESSION.selectedCheckboxes }}" value="{{ @checkbox }}">
+                                {{ ucfirst(@checkbox) }}
+                                {{ if !@iterator.isLast }}, {{ endif }}
+                            </repeat>
+                        </p>
                         <hr>
 
                     </div>

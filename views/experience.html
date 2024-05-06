@@ -10,14 +10,23 @@
                 <div class="row">
                     <div class="col-8">
                         <label for="bio">Biography</label><br>
+                        <check if="{{ isset(@errors['bio']) }}">
+                            <span class="err">{{ @errors['bio'] }}</span>
+                        </check>
                         <textarea id="bio" name="bio" class="input-width" rows="5" placeholder="Please tell us about yourself."></textarea>
                     </div>
                     <div class="col-4">
                         <label for="link">LinkedIn Link</label><br>
+                        <check if="{{ isset(@errors['link']) }}">
+                            <span class="err">{{ @errors['link'] }}</span>
+                        </check>
                         <input type="text" id="link" name="link" class="input-width" placeholder="linkedin.com/in/">
                     </div>
 
                     <div class="col-4">
+                        <check if="{{ isset(@errors['yearsInExperience']) }}">
+                            <span class="err">{{ @errors['yearsInExperience'] }}</span>
+                        </check>
                         <label>Years of Experience</label><br>
                         <input type="radio" id="0-2" name="yearsInExperience" value="0-2">
                         <label for="0-2">0-2</label>
