@@ -1,6 +1,7 @@
 <include href="views/mainHeader.html"></include>
 <body>
     <include href="views/miniHeader.html"></include>
+
     <div class="outer-container mb-5">
         <div class="container content-container ">
 
@@ -12,15 +13,22 @@
                     </div>
                 </div>
             </div>
+
             <form action="#" method="post" class="form-horizontal">
                 <div class="row">
                     <div class="col-4">
                         <label for="fname">First name</label><br>
                         <input type="text" id="fname" name="fname" class="input-width" placeholder="Sarah">
+                        <check if="{{ isset(@errors['fname']) }}">
+                            <span class="err">{{ @errors['fname'] }}</span>
+                        </check>
                     </div>
                     <div class="col-4">
                         <label for="lname">Last name</label><br>
                         <input type="text" id="lname" name="lname" class="input-width" placeholder="Smith">
+                        <check if="{{ isset(@errors['lname']) }}">
+                            <span class="err">{{ @errors['lname'] }}</span>
+                        </check>
                     </div>
                     <div class="col-4 position-relative">
                         <div class="message-box position-absolute top-0 end-0 p-1 mt-3  rounded">
@@ -34,6 +42,9 @@
                     <div class="col-8 mt-1">
                         <label for="email">Email</label><br>
                         <input type="text" id="email" name="email" class="input-width" placeholder="my_email@gmail.com">
+                        <check if="{{ isset(@errors['email']) }}">
+                            <span class="err">{{ @errors['email'] }}</span>
+                        </check>
                     </div>
                 </div>
 
@@ -97,6 +108,9 @@
                     <div class="col-4">
                         <label for="phone">Phone</label><br>
                         <input type="text" id="phone" name="phone" class="input-width" placeholder="222-333-4444">
+                        <check if="{{ isset(@errors['phone']) }}">
+                            <span class="err">{{ @errors['phone'] }}</span>
+                        </check>
                     </div>
                     <div class="col-4 mt-4">
                         <button type="submit" class="btn btn-primary btn-sm personal-info-button">Next ></button>
