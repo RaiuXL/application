@@ -2,50 +2,51 @@
 
 <body>
 
-    <include href="views/miniHeader.html"></include>
+<include href="views/miniHeader.html"></include>
 
-    <div class="outer-container mb-5">
-        <div class="container content-container">
-            <div class="row">
-                <div class="col-md-5 mb-4">
-                    <div class="jobListingText">
-                        <p>Name: {{@SESSION.fname}} {{@SESSION.lname}}</p>
-                        <hr>
-                        <p>Email: {{@SESSION.email}}</p>
-                        <hr>
-                        <p>State: {{@SESSION.state}}</p>
-                        <hr>
-                        <p>Phone: {{@SESSION.phone}}</p>
-                        <hr>
-                        <p>LinkedIn Link: {{@SESSION.link}}</p>
-                        <hr>
-                        <p>Experience: {{@SESSION.yearsInExperience}} years</p>
-                        <hr>
-                        <p>Willing To Relocate: {{@SESSION.willingToRelocate}}</p>
-                        <hr>
-                        <p>Mailing Lists:
-                            <repeat group="{{ @SESSION.selectedCheckboxes }}" value="{{ @checkbox }}">
-                                {{ ucfirst(@checkbox) }}
-                                {{ if !@iterator.isLast }}, {{ endif }}
-                            </repeat>
-                        </p>
-                        <hr>
-
-                    </div>
+<div class="outer-container mb-5">
+    <div class="container content-container">
+        <div class="row">
+            <div class="col-md-5 mb-4">
+                <div class="jobListingText mb-4">
+                    <h2>You are almost there! Next step is to submit!</h2>
                 </div>
-                <div class="col-md-6 offset-1">
-                    <img src="images/defaultProfilePicture.png" alt="caregiving" class="custom-image2">
+                <div class="jobListingText mt-2">
+                    <p>Name: {{@SESSION.fname}} {{@SESSION.lname}}</p>
+                    <hr>
+                    <p>Email: {{@SESSION.email}}</p>
+                    <hr>
+                    <p>State: {{@SESSION.state}}</p>
+                    <hr>
+                    <p>Phone: {{@SESSION.phone}}</p>
+                    <hr>
+                    <p>LinkedIn Link: {{@SESSION.link}}</p>
+                    <hr>
+                    <p>Experience: {{@SESSION.yearsInExperience}} years</p>
+                    <hr>
+                    <p>Willing To Relocate: {{@SESSION.willingToRelocate}}</p>
+                    <hr>
+                    <p>Mailing Lists:
+                        <repeat group="{{ @SESSION.selectedCheckboxes }}" value="{{ @checkbox }}" counter="{{ @index }}">
+                            {{ ucfirst(@checkbox) }}<check if="{{ @index < count(@SESSION.selectedCheckboxes) }}">,</check><check if="{{ @index == count(@SESSION.selectedCheckboxes) }}">.</check>
+                        </repeat>
+                    </p>
+                    <hr>
                 </div>
-                <div class="row col-7 offset-5 mt-2">
+            </div>
+            <div class="col-md-6 offset-1">
+                <img src="images/defaultProfilePicture.png" alt="caregiving" class="custom-image2">
+                <div class="mt-4">
                     <h3>Summary</h3>
                     <p>{{@SESSION.bio}}</p>
                 </div>
-                <div class="row col-6 offset-2">
-                    <button type="submit" class="btn btn-primary btn-sm personal-info-button">Submit My Application</button>
-                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center mt-4">
+                <button type="submit" class="btn btn-primary btn-sm personal-info-button">Submit My Application</button>
             </div>
         </div>
     </div>
+</div>
 
 </body>
 </html>

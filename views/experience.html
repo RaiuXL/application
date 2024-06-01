@@ -1,33 +1,33 @@
 <include href="views/mainHeader.html"></include>
 <body>
-    <include href="views/miniHeader.html"></include>
+<include href="views/miniHeader.html"></include>
 
 <div class="outer-container mb-5">
-        <div class="container content-container ">
-            <h2>Experience</h2>
-            <hr>
-            <form action="#" method="post" class="form-horizontal">
-                <div class="row">
-                    <div class="col-8">
-                        <label for="bio">Biography</label><br>
-                        <check if="{{ isset(@errors['bio']) }}">
-                            <span class="err">{{ @errors['bio'] }}</span>
-                        </check>
-                        <textarea id="bio" name="bio" class="input-width" rows="5" placeholder="Please tell us about yourself."></textarea>
-                    </div>
-                    <div class="col-4">
-                        <label for="link">LinkedIn Link</label><br>
-                        <check if="{{ isset(@errors['link']) }}">
-                            <span class="err">{{ @errors['link'] }}</span>
-                        </check>
-                        <input type="text" id="link" name="link" class="input-width" placeholder="linkedin.com/in/">
-                    </div>
+    <div class="container content-container">
+        <h2>Experience</h2>
+        <hr>
+        <form action="#" method="post" class="form-horizontal">
+            <div class="row">
+                <div class="col-8">
+                    <label for="bio">Biography</label><br>
+                    <check if="{{ isset(@errors['bio']) }}">
+                        <span class="err">{{ @errors['bio'] }}</span>
+                    </check>
+                    <textarea id="bio" name="bio" class="input-width" rows="6" placeholder="Please tell us about yourself."></textarea>
+                </div>
+                <div class="col-4">
+                    <label for="link">LinkedIn Link</label><br>
+                    <check if="{{ isset(@errors['link']) }}">
+                        <span class="err">{{ @errors['link'] }}</span>
+                    </check>
+                    <input type="text" id="link" name="link" class="input-width" placeholder="linkedin.com/in/">
 
-                    <div class="col-4">
-                        <check if="{{ isset(@errors['yearsInExperience']) }}">
-                            <span class="err">{{ @errors['yearsInExperience'] }}</span>
-                        </check>
+                    <!-- Years of Experience Section -->
+                    <div class="mt-2">
                         <label>Years of Experience</label><br>
+                        <check if="{{ isset(@errors['yearsInExperience']) }}">
+                            <span class="err">{{ @errors['yearsInExperience'] }}</span><br>
+                        </check>
                         <input type="radio" id="0-2" name="yearsInExperience" value="0-2">
                         <label for="0-2">0-2</label>
                         <input type="radio" id="2-4" name="yearsInExperience" value="2-4">
@@ -35,24 +35,30 @@
                         <input type="radio" id="4+" name="yearsInExperience" value="4+">
                         <label for="4+">4+</label>
                     </div>
-                    <div class="col-4">
+
+                    <!-- Willing to Relocate Section -->
+                    <div class="mt-2">
                         <label>Willing to Relocate</label><br>
-                        <input type="radio" id="yes" name="willingToRelocate" value="yes">
-                        <label for="yes">Yes</label>
-                        <input type="radio" id="no" name="willingToRelocate" value="no">
-                        <label for="no">No</label>
-                        <input type="radio" id="maybe" name="willingToRelocate" value="maybe">
-                        <label for="maybe">Maybe</label>
-                    </div>
-                    <div class="col-4 mt-2">
-                        <button type="submit" class="btn btn-primary btn-sm personal-info-button">Next ></button>
+                        <check if="{{ isset(@errors['willingToRelocate']) }}">
+                            <span class="err">{{ @errors['willingToRelocate'] }}</span><br>
+                        </check>
+                        <input type="radio" id="Yes" name="willingToRelocate" value="Yes">
+                        <label for="Yes">Yes</label>
+                        <input type="radio" id=No" name="willingToRelocate" value="No">
+                        <label for="No">No</label>
+                        <input type="radio" id="Maybe" name="willingToRelocate" value="Maybe">
+                        <label for="Maybe">Maybe</label>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+            <div class="row">
+                <div class="col-8"></div>
+                <div class="col-4 d-flex justify-content-end mt-2">
+                    <button type="submit" class="btn btn-primary btn-sm personal-info-button">Next ></button>
+                </div>
+            </div>
+        </form>
     </div>
-
-
-
+</div>
 </body>
 </html>

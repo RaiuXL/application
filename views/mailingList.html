@@ -2,40 +2,78 @@
 
 <body>
 
-    <include href="views/miniHeader.html"></include>
+<include href="views/miniHeader.html"></include>
 
-    <!-- experience.html -->
-    <div class="outer-container mb-5">
-        <div class="container content-container">
-            <h3>Job Openings Mailing Lists</h3>
-            <hr>
-            <form action="#" method="post" class="form-horizontal">
-                <label>Software Development Jobs</label><br>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <repeat group="{{ @jobOpenings }}" value="{{ @job }}">
+<div class="outer-container mb-5">
+    <div class="container content-container">
+        <h3>Job Openings Mailing Lists</h3>
+        <hr>
+        <form action="#" method="post" class="form-horizontal">
+            <label>Software Development Jobs</label><br>
+            <div class="row">
+                <div class="col-sm-3">
+                    <repeat group="{{ @jobOpenings }}" value="{{ @job }}" counter="{{ @idx }}">
+                        <check if="{{ @idx % 4 == 0 }}">
                             <label><input type="checkbox" name="jobOpenings[]" value="{{ @job }}"> {{ ucfirst(@job) }}</label><br>
-                        </repeat>
-                    </div>
+                        </check>
+                    </repeat>
                 </div>
-                <br>
-                <label>Industry Verticals</label><br>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <repeat group="{{ @industryVerticals }}" value="{{ @vertical }}">
+                <div class="col-sm-3">
+                    <repeat group="{{ @jobOpenings }}" value="{{ @job }}" counter="{{ @idx }}">
+                        <check if="{{ @idx % 4 == 1 }}">
+                            <label><input type="checkbox" name="jobOpenings[]" value="{{ @job }}"> {{ ucfirst(@job) }}</label><br>
+                        </check>
+                    </repeat>
+                </div>
+                <div class="col-sm-3">
+                    <repeat group="{{ @jobOpenings }}" value="{{ @job }}" counter="{{ @idx }}">
+                        <check if="{{ @idx % 4 == 2 }}">
+                            <label><input type="checkbox" name="jobOpenings[]" value="{{ @job }}"> {{ ucfirst(@job) }}</label><br>
+                        </check>
+                    </repeat>
+                </div>
+                <div class="col-sm-3">
+                    <repeat group="{{ @jobOpenings }}" value="{{ @job }}" counter="{{ @idx }}">
+                        <check if="{{ @idx % 4 == 3 }}">
+                            <label><input type="checkbox" name="jobOpenings[]" value="{{ @job }}"> {{ ucfirst(@job) }}</label><br>
+                        </check>
+                    </repeat>
+                </div>
+            </div>
+            <br>
+            <label>Industry Verticals</label><br>
+            <div class="row">
+                <div class="col-sm-3">
+                    <repeat group="{{ @industryVerticals }}" value="{{ @vertical }}" counter="{{ @idx }}">
+                        <check if="{{ @idx % 3 == 0 }}">
                             <label><input type="checkbox" name="industryVerticals[]" value="{{ @vertical }}"> {{ ucfirst(@vertical) }}</label><br>
-                        </repeat>
-                    </div>
+                        </check>
+                    </repeat>
                 </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <button class="btn btn-primary" type="submit">Next</button>
-                    </div>
+                <div class="col-sm-3">
+                    <repeat group="{{ @industryVerticals }}" value="{{ @vertical }}" counter="{{ @idx }}">
+                        <check if="{{ @idx % 3 == 1 }}">
+                            <label><input type="checkbox" name="industryVerticals[]" value="{{ @vertical }}"> {{ ucfirst(@vertical) }}</label><br>
+                        </check>
+                    </repeat>
                 </div>
-            </form>
-        </div>
+                <div class="col-sm-3">
+                    <repeat group="{{ @industryVerticals }}" value="{{ @vertical }}" counter="{{ @idx }}">
+                        <check if="{{ @idx % 3 == 2 }}">
+                            <label><input type="checkbox" name="industryVerticals[]" value="{{ @vertical }}"> {{ ucfirst(@vertical) }}</label><br>
+                        </check>
+                    </repeat>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-8"></div>
+                <div class="col-4 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary btn-sm personal-info-button">Next ></button>
+                </div>
+            </div>
+        </form>
     </div>
-
+</div>
 
 </body>
 </html>
