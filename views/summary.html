@@ -26,12 +26,14 @@
                     <hr>
                     <p>Willing To Relocate: {{@SESSION.willingToRelocate}}</p>
                     <hr>
-                    <p>Mailing Lists:
-                        <repeat group="{{ @SESSION.selectedCheckboxes }}" value="{{ @checkbox }}" counter="{{ @index }}">
-                            {{ ucfirst(@checkbox) }}<check if="{{ @index < count(@SESSION.selectedCheckboxes) }}">,</check><check if="{{ @index == count(@SESSION.selectedCheckboxes) }}">.</check>
-                        </repeat>
-                    </p>
-                    <hr>
+                    <check if="{{ @SESSION.mailingListStatus == 'yes' }}">
+                        <p>Mailing Lists:
+                            <repeat group="{{ @SESSION.selectedCheckboxes }}" value="{{ @checkbox }}">
+                                {{ ucfirst(@checkbox) }}<check if="{{ !@last }}">, </check><check if="{{ @last }}">.</check>
+                            </repeat>
+                        </p>
+                        <hr>
+                    </check>
                 </div>
             </div>
             <div class="col-md-6 offset-1">

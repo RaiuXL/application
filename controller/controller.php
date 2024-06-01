@@ -64,11 +64,15 @@ class Controller
 
             $state = $_POST['state'];
 
+            // Handle mailing list checkbox
+            $mailingListStatus = isset($_POST['mailingListStatus']) ? $_POST['mailingListStatus'] : 'no';
+
             $this->_F3->set('SESSION.fname',$fname);
             $this->_F3->set('SESSION.lname',$lname);
             $this->_F3->set('SESSION.email',$email);
             $this->_F3->set('SESSION.state',$state);
             $this->_F3->set('SESSION.phone',$phone);
+            $this->_F3->set('SESSION.mailingListStatus', $mailingListStatus);
 
 
             if(empty($this->_F3->get('errors'))) {
@@ -115,8 +119,12 @@ class Controller
             $this->_F3->set('SESSION.yearsInExperience',$yearsInExperience);
             $this->_F3->set('SESSION.willingToRelocate',$willingToRelocate);
 
-            if(empty($this->_F3->get('errors'))) {
-                $this->_F3->reroute('mailingList');
+            if (empty($this->_F3->get('errors'))) {
+                if ($this->_F3->get('SESSION.mailingListStatus') == 'yes') {
+                    $this->_F3->reroute('mailingList');
+                } else {
+                    $this->_F3->reroute('summary');
+                }
             }
         }
 
