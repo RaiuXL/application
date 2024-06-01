@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <form action="#" method="post" class="form-horizontal">
+            <form action="#" method="post" class="form-horizontal" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-4">
                         <label for="fname">First name</label><br>
@@ -72,8 +72,11 @@
                         <label for="phone">Mailing Lists</label><br>
                         <label><input type="checkbox" name="mailingListStatus" value="yes"> Sign me up for job opening mailing lists!</label>
                     </div>
-                    <div class="col-4 mt-4">
-
+                    <div class="col-4 mt-1">
+                        <div class="col-4">
+                            <label for="fileToUpload">Upload Picture:</label>
+                            <input type="file" name="fileToUpload" id="fileToUpload">
+                        </div>
                     </div>
                     <div class="col-4 mt-3">
                         <button type="submit" class="btn btn-primary btn-sm personal-info-button">Next ></button>

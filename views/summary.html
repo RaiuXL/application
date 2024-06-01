@@ -12,24 +12,24 @@
                     <h2>You are almost there! Next step is to submit!</h2>
                 </div>
                 <div class="jobListingText mt-2">
-                    <p>Name: {{@SESSION.fname}} {{@SESSION.lname}}</p>
+                    <p>Name: {{ @SESSION.applicant->getFname() }} {{ @SESSION.applicant->getLname() }}</p>
                     <hr>
-                    <p>Email: {{@SESSION.email}}</p>
+                    <p>Email: {{ @SESSION.applicant->getEmail() }}</p>
                     <hr>
-                    <p>State: {{@SESSION.state}}</p>
+                    <p>State: {{ @SESSION.applicant->getState() }}</p>
                     <hr>
-                    <p>Phone: {{@SESSION.phone}}</p>
+                    <p>Phone: {{ @SESSION.applicant->getPhone() }}</p>
                     <hr>
-                    <p>LinkedIn Link: {{@SESSION.link}}</p>
+                    <p>LinkedIn Link: {{ @SESSION.applicant->getLink() }}</p>
                     <hr>
-                    <p>Experience: {{@SESSION.yearsInExperience}} years</p>
+                    <p>Experience: {{ @SESSION.applicant->getExperience() }} years</p>
                     <hr>
-                    <p>Willing To Relocate: {{@SESSION.willingToRelocate}}</p>
+                    <p>Willing To Relocate: {{ @SESSION.applicant->getRelocate() }}</p>
                     <hr>
-                    <check if="{{ @SESSION.mailingListStatus == 'yes' }}">
+                    <check if="{{ @SESSION.applicant instanceof Applicant_SubscribedToLists }}">
                         <p>Mailing Lists:
-                            <repeat group="{{ @SESSION.selectedCheckboxes }}" value="{{ @checkbox }}">
-                                {{ ucfirst(@checkbox) }}<check if="{{ !@last }}">, </check><check if="{{ @last }}">.</check>
+                            <repeat group="{{ @SESSION.applicant->getSelectionsJobs() }}" value="{{ @job }}">
+                                {{ ucfirst(@job) }}<check if="{{ !@last }}">, </check><check if="{{ @last }}">.</check>
                             </repeat>
                         </p>
                         <hr>
@@ -37,10 +37,15 @@
                 </div>
             </div>
             <div class="col-md-6 offset-1">
-                <img src="images/defaultProfilePicture.png" alt="caregiving" class="custom-image2">
+                <check if="{{ isset(@SESSION.uploadedFile) }}">
+                    <img src="{{ @SESSION.uploadedFile }}" alt="Profile Picture" class="custom-image2">
+                </check>
+                <check if="{{ !isset(@SESSION.uploadedFile) }}">
+                    <img src="images/defaultProfilePicture.png" alt="Default Profile Picture" class="custom-image2">
+                </check>
                 <div class="mt-4">
                     <h3>Summary</h3>
-                    <p>{{@SESSION.bio}}</p>
+                    <p>{{ @SESSION.applicant->getBio() }}</p>
                 </div>
             </div>
             <div class="col-12 d-flex justify-content-center mt-4">

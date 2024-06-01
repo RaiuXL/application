@@ -39,4 +39,8 @@ $F3->route('GET|POST /mailingList', function(){
     $GLOBALS['con']->mailingList();
 });
 
+$F3->route('POST /upload', function() {
+    $GLOBALS['con']->handleFileUpload();
+});
+
 $F3->run();

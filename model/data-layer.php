@@ -1,24 +1,50 @@
 <?php
 
+/**
+ * Get experience levels.
+ *
+ * @return array
+ */
 function getExperience()
 {
     return array('0-2', '2-4', '4+');
 }
+
+/**
+ * Get relocation options.
+ *
+ * @return array
+ */
 function getRelocationOptions()
 {
     return array('Yes', 'No', 'Maybe');
 }
+
+/**
+ * Get job openings.
+ *
+ * @return array
+ */
 function getJobOpenings()
 {
     return array('JavaScript', 'HTML', 'PHP', 'CSS', 'Java', 'ReactJS', 'Python', 'NodeJS');
 }
 
-// Function to get industry verticals
+/**
+ * Get industry verticals.
+ *
+ * @return array
+ */
 function getIndustryVerticals()
 {
     return array('SaaS', 'Industrial Tech', 'Health Tech', 'Cybersecurity', 'Ag Tech', 'HR Tech');
 }
 
+/**
+ * Get states.
+ *
+ * @return array
+ */
 function getStates()
 {
     return array(
